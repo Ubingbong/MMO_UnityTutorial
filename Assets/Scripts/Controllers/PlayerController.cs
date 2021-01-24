@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
             transform.position += Vector3.left * Time.deltaTime * _speed;
         }
 
-        //_moveToDest = false;
+        _moveToDest = false;
 
     }
 

@@ -11,7 +11,7 @@ public class InputManager
     bool _pressed = false;
     public void OnUpdate()
     {
-        // 어떤 입력이라도 발생하고 키 입력이 있으면
+        // 어떤 입력이라도 발생하고 키 입력에 따른 어떤 동작이 예약되어 있으면
         if (Input.anyKey && KeyAction != null)
             KeyAction.Invoke();
 
