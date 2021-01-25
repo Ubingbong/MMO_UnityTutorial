@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        Debug.DrawRay(Camera.main.transform.position, ray.direction * Camera.main.farClipPlane, Color.red, 1.0f);
+        // /Debug.DrawRay(Camera.main.transform.position, ray.direction * Camera.main.farClipPlane, Color.red, 1.0f);
 
         // 벽 레이어만 사용
         LayerMask layermask = LayerMask.GetMask("Wall");

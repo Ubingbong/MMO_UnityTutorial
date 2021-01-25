@@ -33,6 +33,5 @@ public class ResourceManager
             return;
 
         Object.Destroy(go, time);
-        return;
     }
 }

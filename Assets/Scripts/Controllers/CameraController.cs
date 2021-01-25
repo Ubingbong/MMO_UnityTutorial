@@ -5,13 +5,13 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [SerializeField]
-    private Define.CameraMode _mode = Define.CameraMode.QuarterView;
+    Define.CameraMode _mode = Define.CameraMode.QuarterView;
 
     [SerializeField]
-    private Vector3 _delta = new Vector3(0.0f, 6.0f, -5.0f);
+    Vector3 _delta = new Vector3(0.0f, 6.0f, -5.0f);
 
     [SerializeField]
-    private GameObject _player = null;
+    GameObject _player = null;
 
     void Start()
     {
@@ -24,7 +24,8 @@ public class CameraController : MonoBehaviour
         if (_mode == Define.CameraMode.QuarterView)
         {
             RaycastHit hitInfo;
-            if (Physics.Raycast(_player.transform.position, transform.position, out hitInfo, transform.position.magnitude, LayerMask.GetMask("Wall")))
+            //Debug.DrawRay(_player.transform.position, _delta, Color.red, _delta.magnitude);
+            if (Physics.Raycast(_player.transform.position, _delta, out hitInfo, _delta.magnitude, LayerMask.GetMask("Wall")))
             {
                 float dist = (hitInfo.point - _player.transform.position).magnitude * 0.8f;
                 transform.position = _player.transform.position + _delta.normalized * dist;
@@ -40,6 +41,7 @@ public class CameraController : MonoBehaviour
     public void SetQuaterView(Vector3 delta)
     {
         _mode = Define.CameraMode.QuarterView;
+        _delta = delta;
     }
 
 }
